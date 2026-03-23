@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-winner-modal',
   imports: [],
   templateUrl: './winner-modal.html',
-  styleUrl: './winner-modal.css',
 })
 export class WinnerModal {}
