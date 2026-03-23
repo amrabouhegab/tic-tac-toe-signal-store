@@ -1,5 +1,5 @@
 <app-header />
-<!-- Main Content Canvas -->
+
 <main class="flex-grow flex items-center justify-center px-6 py-20 relative overflow-hidden">
   <!-- Subtle Ambient Background Element -->
   <div
@@ -32,57 +32,24 @@
         </div>
         <div class="space-y-8">
           <!-- Player 1 Static Display -->
-          <div class="group relative border-b border-white/20 transition-colors duration-500 pb-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-4 w-full">
-                <span class="font-headline text-2xl marker-gradient-x select-none w-8" style=""
-                  >X</span
-                >
-                <input
-                  class="bg-transparent border-none p-0 w-full text-xs tracking-[0.25em] uppercase font-semibold text-primary focus:ring-0 focus:outline-none placeholder:text-primary/30"
-                  spellcheck="false"
-                  type="text"
-                  value="The Architect"
-                />
-              </div>
-              <span class="font-headline text-2xl text-primary ml-4" style="">02</span>
-            </div>
-            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-primary/30"></div>
-          </div>
+          <app-player-input symbol="X" name="Player 1" />
           <!-- Player 2 Static Display -->
-          <div class="group relative border-b border-white/20 transition-colors duration-500 pb-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-4 w-full">
-                <span class="font-headline text-2xl text-white/60 select-none w-8" style="">O</span>
-                <input
-                  class="bg-transparent border-none p-0 w-full text-xs tracking-[0.25em] uppercase font-semibold text-white focus:ring-0 focus:outline-none placeholder:text-white/30"
-                  spellcheck="false"
-                  type="text"
-                  value="The Enigma"
-                />
-              </div>
-              <span class="font-headline text-2xl text-white/50 ml-4" style="">01</span>
-            </div>
-            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
-          </div>
+          <app-player-input symbol="O" name="Player 2" />
         </div>
         <!-- Action Buttons -->
         <div class="flex flex-col space-y-4 pt-4">
           <button
             class="bg-primary text-on-primary-fixed py-5 rounded-sm font-label text-xs tracking-[0.3em] uppercase hover:bg-primary/90 active:scale-[0.98] transition-all duration-300 font-bold shadow-xl shadow-primary/10"
-            style=""
           >
             Begin Duel
           </button>
           <button
             class="font-label text-[10px] tracking-[0.2em] uppercase text-white/60 hover:text-primary transition-all duration-300 flex items-center group justify-center"
-            style=""
           >
             Reset Board
             <span
               class="material-symbols-outlined ml-2 text-sm group-hover:rotate-180 transition-transform duration-500"
               data-icon="refresh"
-              style=""
               >refresh</span
             >
           </button>
@@ -95,7 +62,9 @@
     </div>
   </div>
 </main>
+
 <!-- Footer -->
 <app-footer />
+
 <!-- Glassmorphic Winner Overlay (Hidden by Default) -->
 <app-winner-modal />
