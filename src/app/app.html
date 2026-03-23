@@ -1,41 +1,5 @@
-<header
-  class="sticky top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl shadow-2xl shadow-black/40"
->
-  <div class="flex justify-between items-center px-12 py-8 w-full max-w-screen-2xl mx-auto">
-    <div class="text-2xl font-serif italic tracking-widest text-primary uppercase" style="">
-      Tic Tac Toe
-    </div>
-    <nav class="hidden md:flex items-center space-x-12">
-      <a
-        class="border-b-2 border-primary/60 pb-1 text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 text-white"
-        href="#"
-        style=""
-        >Play</a
-      >
-      <a
-        class="font-medium tracking-widest uppercase text-[10px] hover:text-primary transition-colors duration-300 text-slate-100"
-        href="#"
-        style=""
-        >Archive</a
-      >
-      <a
-        class="font-medium tracking-widest uppercase text-[10px] hover:text-primary transition-colors duration-300 text-slate-100"
-        href="#"
-        style=""
-        >Etiquette</a
-      >
-    </nav>
-    <div class="flex items-center space-x-6 text-primary">
-      <button class="active:scale-95 transition-transform duration-200" style="">
-        <span class="material-symbols-outlined" data-icon="history" style="">history</span>
-      </button>
-      <button class="active:scale-95 transition-transform duration-200" style="">
-        <span class="material-symbols-outlined" data-icon="settings" style="">settings</span>
-      </button>
-    </div>
-  </div>
-</header>
-<!-- Main Content Canvas -->
+<app-header />
+
 <main class="flex-grow flex items-center justify-center px-6 py-20 relative overflow-hidden">
   <!-- Subtle Ambient Background Element -->
   <div
@@ -68,57 +32,24 @@
         </div>
         <div class="space-y-8">
           <!-- Player 1 Static Display -->
-          <div class="group relative border-b border-white/20 transition-colors duration-500 pb-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-4 w-full">
-                <span class="font-headline text-2xl marker-gradient-x select-none w-8" style=""
-                  >X</span
-                >
-                <input
-                  class="bg-transparent border-none p-0 w-full text-xs tracking-[0.25em] uppercase font-semibold text-primary focus:ring-0 focus:outline-none placeholder:text-primary/30"
-                  spellcheck="false"
-                  type="text"
-                  value="The Architect"
-                />
-              </div>
-              <span class="font-headline text-2xl text-primary ml-4" style="">02</span>
-            </div>
-            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-primary/30"></div>
-          </div>
+          <app-player-input symbol="X" name="Player 1" />
           <!-- Player 2 Static Display -->
-          <div class="group relative border-b border-white/20 transition-colors duration-500 pb-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-4 w-full">
-                <span class="font-headline text-2xl text-white/60 select-none w-8" style="">O</span>
-                <input
-                  class="bg-transparent border-none p-0 w-full text-xs tracking-[0.25em] uppercase font-semibold text-white focus:ring-0 focus:outline-none placeholder:text-white/30"
-                  spellcheck="false"
-                  type="text"
-                  value="The Enigma"
-                />
-              </div>
-              <span class="font-headline text-2xl text-white/50 ml-4" style="">01</span>
-            </div>
-            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
-          </div>
+          <app-player-input symbol="O" name="Player 2" />
         </div>
         <!-- Action Buttons -->
         <div class="flex flex-col space-y-4 pt-4">
           <button
             class="bg-primary text-on-primary-fixed py-5 rounded-sm font-label text-xs tracking-[0.3em] uppercase hover:bg-primary/90 active:scale-[0.98] transition-all duration-300 font-bold shadow-xl shadow-primary/10"
-            style=""
           >
             Begin Duel
           </button>
           <button
             class="font-label text-[10px] tracking-[0.2em] uppercase text-white/60 hover:text-primary transition-all duration-300 flex items-center group justify-center"
-            style=""
           >
             Reset Board
             <span
               class="material-symbols-outlined ml-2 text-sm group-hover:rotate-180 transition-transform duration-500"
               data-icon="refresh"
-              style=""
               >refresh</span
             >
           </button>
@@ -127,164 +58,13 @@
     </div>
     <!-- Right Side: The Game Board Plate -->
     <div class="lg:col-span-7 flex justify-center lg:justify-end">
-      <div class="relative group">
-        <!-- Elevation Shadow -->
-        <div
-          class="absolute -inset-4 bg-black/40 blur-3xl rounded-xl opacity-50 group-hover:opacity-70 transition-opacity duration-700"
-        ></div>
-        <!-- The Board Plate -->
-        <div
-          class="relative bg-surface-container p-2 rounded-lg shadow-2xl border border-primary/20"
-        >
-          <div class="board-grid">
-            <!-- Cell 1 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span class="font-headline text-5xl marker-gradient-x select-none" style="">X</span>
-            </button>
-            <!-- Cell 2 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span
-                class="font-headline text-5xl text-white/10 select-none opacity-0 hover:opacity-30"
-                style=""
-                >O</span
-              >
-            </button>
-            <!-- Cell 3 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span class="font-headline text-5xl text-white/60 select-none" style="">O</span>
-            </button>
-            <!-- Cell 4 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span
-                class="font-headline text-5xl text-white/10 select-none opacity-0 hover:opacity-30"
-                style=""
-                >X</span
-              >
-            </button>
-            <!-- Cell 5 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span class="font-headline text-5xl marker-gradient-x select-none" style="">X</span>
-            </button>
-            <!-- Cell 6 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span
-                class="font-headline text-5xl text-white/10 select-none opacity-0 hover:opacity-30"
-                style=""
-                >O</span
-              >
-            </button>
-            <!-- Cell 7 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span class="font-headline text-5xl text-white/60 select-none" style="">O</span>
-            </button>
-            <!-- Cell 8 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span
-                class="font-headline text-5xl text-white/10 select-none opacity-0 hover:opacity-30"
-                style=""
-                >X</span
-              >
-            </button>
-            <!-- Cell 9 -->
-            <button
-              class="w-24 h-24 md:w-32 md:h-32 bg-surface-container-low hover:bg-surface-container-high active:scale-[0.98] transition-all duration-300 flex items-center justify-center rounded-sm"
-              style=""
-            >
-              <span
-                class="font-headline text-5xl text-white/10 select-none opacity-0 hover:opacity-30"
-                style=""
-                >O</span
-              >
-            </button>
-          </div>
-        </div>
-        <!-- Asymmetric Decoration -->
-        <div
-          class="absolute -bottom-12 -right-12 w-32 h-32 border-r border-b border-primary/40 pointer-events-none hidden md:block"
-        ></div>
-        <div
-          class="absolute -top-6 -left-6 text-[8px] tracking-[0.5em] uppercase text-white/40 font-bold rotate-90 origin-top-left pointer-events-none"
-          style=""
-        >
-          Ref. No. MCMXXIV
-        </div>
-      </div>
+      <app-game-board />
     </div>
   </div>
 </main>
+
 <!-- Footer -->
-<footer class="w-full bg-slate-950 border-t border-white/5">
-  <div
-    class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-7xl mx-auto"
-  >
-    <div
-      class="font-sans text-[10px] tracking-[0.2em] uppercase mb-8 md:mb-0 text-slate-100"
-      style=""
-    >
-      MCMXXIV THE GRANDMASTER'S STUDY
-    </div>
-    <div class="flex space-x-10">
-      <a
-        class="font-sans text-[10px] tracking-[0.2em] uppercase hover:text-primary transition-all duration-500 text-slate-100"
-        href="#"
-        style=""
-        >Etiquette</a
-      >
-      <a
-        class="font-sans text-[10px] tracking-[0.2em] uppercase hover:text-primary transition-all duration-500 text-slate-100"
-        href="#"
-        style=""
-        >Archive</a
-      >
-      <a
-        class="font-sans text-[10px] tracking-[0.2em] uppercase hover:text-primary transition-all duration-500 text-slate-100"
-        href="#"
-        style=""
-        >Privacy</a
-      >
-    </div>
-  </div>
-</footer>
+<app-footer />
+
 <!-- Glassmorphic Winner Overlay (Hidden by Default) -->
-<div
-  class="fixed inset-0 z-[100] flex items-center justify-center bg-background/70 backdrop-blur-md hidden"
->
-  <div
-    class="bg-slate-900/60 p-20 rounded-lg text-center border border-primary/20 shadow-2xl backdrop-blur-xl"
-  >
-    <p class="text-[10px] tracking-[0.6em] uppercase text-primary mb-6 font-bold" style="">
-      Match Concluded
-    </p>
-    <h2 class="font-headline text-7xl text-white mb-10" style="">X Triumphs</h2>
-    <button
-      class="bg-primary text-on-primary px-10 py-4 rounded-full font-label text-xs tracking-widest uppercase hover:scale-105 active:scale-95 transition-all font-bold"
-      style=""
-    >
-      New Encounter
-    </button>
-  </div>
-</div>
+<app-winner-modal />

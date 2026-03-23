@@ -1,11 +1,14 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
+import { GameBoard } from './components/game-board/game-board';
+import { WinnerModal } from './components/winner-modal/winner-modal';
+import { PlayerInput } from './components/player-input/player-input';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Header, Footer, GameBoard, WinnerModal, PlayerInput],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('tic-tac-toe-signal-store');
