@@ -1,17 +1,36 @@
 <div class="group relative border-b border-white/20 transition-colors duration-500 pb-2 mb-8">
   <div class="flex items-center justify-between">
     <div class="flex items-center space-x-4 w-full">
-      <span class="font-headline text-2xl marker-gradient-x select-none w-8" style="">{{
-        symbol()
-      }}</span>
+      <span
+        class="font-headline text-2xl select-none w-8"
+        [class.marker-gradient-x]="symbol() === 'X'"
+        >{{ symbol() }}</span
+      >
       <input
-        class="bg-transparent border-none p-0 w-full text-xs tracking-[0.25em] uppercase font-semibold text-primary focus:ring-0 focus:outline-none placeholder:text-primary/30"
+        class="bg-transparent border-none p-0 w-full text-xs tracking-[0.25em] uppercase font-semibold focus:ring-0 focus:outline-none"
+        [class.text-primary]="symbol() === 'X'"
+        [class.placeholder:text-primary/30]="symbol() === 'X'"
         spellcheck="false"
         type="text"
-        value="{{ name() }}"
+        value="{{ initialName() }}"
+        [ngModel]="name()"
+        (ngModelChange)="onNameChange($event)"
+        [disabled]="!isEdit()"
       />
+      <button
+        class="active:scale-80 transition-transform duration-200 cursor-pointer"
+        [class.text-primary]="symbol() === 'X'"
+      >
+        @if (isEdit()) {
+          <span class="material-symbols-outlined" data-icon="check" (click)="onSave()">check</span>
+        } @else {
+          <span class="material-symbols-outlined" data-icon="edit" (click)="onEdit()">edit</span>
+        }
+      </button>
     </div>
     <!-- <span class="font-headline text-2xl text-primary ml-4" style="">02</span> -->
   </div>
-  <!-- <div class="absolute bottom-0 left-0 w-full h-[1px] bg-primary/30"></div> -->
+  @if (isEdit()) {
+    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-primary/30"></div>
+  }
 </div>

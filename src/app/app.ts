@@ -11,5 +11,9 @@ import { PlayerInput } from './components/player-input/player-input';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('tic-tac-toe-signal-store');
+  currentPlayerSymbol = signal('X');
+
+  onCellChanged() {
+    this.currentPlayerSymbol.update((symbol) => (symbol === 'X' ? 'O' : 'X'));
+  }
 }
